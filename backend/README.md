@@ -69,6 +69,21 @@ The database tables are automatically created when the application starts.
 
 ## API Endpoints
 
+### Authentication
+
+See [AUTHENTICATION.md](./AUTHENTICATION.md) for detailed authentication documentation.
+
+- `POST /api/auth/signup` - Register new user
+- `POST /api/auth/login` - User login (JWT token)
+- `GET /api/auth/me` - Get current user profile
+- `PUT /api/auth/me` - Update user profile
+- `POST /api/auth/logout` - User logout
+
+### Protected Routes
+
+- `GET /api/protected/user-profile` - Example protected route
+- `GET /api/protected/admin-only` - Admin-only route
+
 ### Health Check
 
 - `GET /api/health` - Health check endpoint

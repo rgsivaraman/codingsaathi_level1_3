@@ -32,6 +32,8 @@ class Settings:
         "SECRET_KEY",
         "your-secret-key-change-in-production"
     )
+    ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "30"))
     
     @property
     def sqlalchemy_database_url(self) -> str:
