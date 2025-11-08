@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from config import settings
 from database import Base, engine
-from app.routes import health
+from app.routes import auth, health, protected
 
 # Create all database tables
 Base.metadata.create_all(bind=engine)
@@ -28,6 +28,8 @@ app.add_middleware(
 
 # Include routers
 app.include_router(health.router, prefix="/api", tags=["health"])
+app.include_router(auth.router, prefix="/api", tags=["authentication"])
+app.include_router(protected.router, prefix="/api", tags=["protected"])
 
 
 @app.get("/")
